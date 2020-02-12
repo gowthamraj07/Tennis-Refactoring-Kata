@@ -28,13 +28,9 @@ public class TennisGame2 implements TennisGame {
             return "Advantage player2";
         }
 
-        if (isBelowGamePoint(player1Point) || isBelowGamePoint(player2Point)) {
-            player1Score = constructScore(player1Point);
-            player2Score = constructScore(player2Point);
-            score = player1Score + "-" + player2Score;
-        }
-
-        return score;
+        player1Score = constructScore(player1Point);
+        player2Score = constructScore(player2Point);
+        return player1Score + "-" + player2Score;
     }
 
     private boolean isAdvantageForPlayer2() {
@@ -75,10 +71,6 @@ public class TennisGame2 implements TennisGame {
 
     private boolean isGamePointOrAbove(int playerPoint) {
         return playerPoint >= 3;
-    }
-
-    private boolean isBelowGamePoint(int playerPoint) {
-        return playerPoint < 4;
     }
 
     private boolean isTie() {
