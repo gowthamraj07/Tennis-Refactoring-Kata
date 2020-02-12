@@ -25,7 +25,7 @@ public class TennisGame2 implements TennisGame {
             score = player1Score + "-" + player2Score;
         }
 
-        if (player1Point > player2Point && isBelowGamePoint()) {
+        if (player1Point > player2Point && isBelowGamePoint(player1Point)) {
             if (player1Point == 2)
                 player1Score = "Thirty";
             if (player1Point == 3)
@@ -36,7 +36,7 @@ public class TennisGame2 implements TennisGame {
                 player2Score = "Thirty";
             score = player1Score + "-" + player2Score;
         }
-        if (player2Point > player1Point && player2Point < 4) {
+        if (player2Point > player1Point && isBelowGamePoint(player2Point)) {
             if (player2Point == 2)
                 player2Score = "Thirty";
             if (player2Point == 3)
@@ -92,8 +92,8 @@ public class TennisGame2 implements TennisGame {
         return player1Point >= 3;
     }
 
-    private boolean isBelowGamePoint() {
-        return player1Point < 4;
+    private boolean isBelowGamePoint(int playerPoint) {
+        return playerPoint < 4;
     }
 
     private boolean isTie() {
