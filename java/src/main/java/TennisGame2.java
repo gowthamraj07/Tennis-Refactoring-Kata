@@ -19,12 +19,7 @@ public class TennisGame2 implements TennisGame {
             score = player1Score + "-" + player2Score;
         }
         if (player2Point > 0 && player1Point == 0) {
-            if (player2Point == 1)
-                player2Score = "Fifteen";
-            if (player2Point == 2)
-                player2Score = "Thirty";
-            if (player2Point == 3)
-                player2Score = "Forty";
+            player2Score = constructScore(player2Point);
 
             player1Score = "Love";
             score = player1Score + "-" + player2Score;
