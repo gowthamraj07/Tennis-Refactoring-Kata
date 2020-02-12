@@ -1,12 +1,12 @@
 public class Score {
     public static final String LOVE = "Love";
 
-    String constructScore(int playerPoint) {
-        if (playerPoint == 0)
+    String constructScore(int point) {
+        if (point == 0)
             return "Love";
-        if (playerPoint == 1)
+        if (point == 1)
             return "Fifteen";
-        if (playerPoint == 2)
+        if (point == 2)
             return "Thirty";
 
         return "Forty";
