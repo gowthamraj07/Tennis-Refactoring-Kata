@@ -26,8 +26,6 @@ public class TennisGame2 implements TennisGame {
             return "Advantage player2";
         }
 
-        player1.score = score.constructScore(player1.point);
-        player2.score = score.constructScore(player2.point);
         return player1.score + "-" + player2.score;
     }
 

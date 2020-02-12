@@ -1,6 +1,5 @@
 public class Score {
-    public Score() {
-    }
+    public static final String LOVE = "Love";
 
     String constructScore(int playerPoint) {
         if (playerPoint == 0)
