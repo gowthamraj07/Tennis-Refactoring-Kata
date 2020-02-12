@@ -72,18 +72,10 @@ public class TennisGame2 implements TennisGame {
         return player1.point == player2.point;
     }
 
-    public void player1Scores() {
-        player1.point++;
-    }
-
-    public void player2Scores() {
-        player2.point++;
-    }
-
     public void wonPoint(String player) {
         if ("player1".equals(player))
-            player1Scores();
+            player1.scores();
         else
-            player2Scores();
+            player2.scores();
     }
 }
