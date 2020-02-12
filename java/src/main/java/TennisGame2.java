@@ -31,14 +31,8 @@ public class TennisGame2 implements TennisGame {
             score = player1Score + "-" + player2Score;
         }
         if (player2Point > player1Point && isBelowGamePoint(player2Point)) {
-            if (player2Point == 2)
-                player2Score = "Thirty";
-            if (player2Point == 3)
-                player2Score = "Forty";
-            if (player1Point == 1)
-                player1Score = "Fifteen";
-            if (player1Point == 2)
-                player1Score = "Thirty";
+            player1Score = constructScore(player1Point);
+            player2Score = constructScore(player2Point);
             score = player1Score + "-" + player2Score;
         }
 
