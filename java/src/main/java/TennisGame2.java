@@ -12,6 +12,14 @@ public class TennisGame2 implements TennisGame {
             return constructTieScore();
         }
 
+        if (isPlayer1Win()) {
+            return "Win for player1";
+        }
+
+        if (isPlayer2Win()) {
+            return "Win for player2";
+        }
+
         if (isBelowGamePoint(player1Point) || isBelowGamePoint(player2Point)) {
             player1Score = constructScore(player1Point);
             player2Score = constructScore(player2Point);
@@ -26,12 +34,6 @@ public class TennisGame2 implements TennisGame {
             score = "Advantage player2";
         }
 
-        if (isPlayer1Win()) {
-            score = "Win for player1";
-        }
-        if (isPlayer2Win()) {
-            score = "Win for player2";
-        }
         return score;
     }
 
