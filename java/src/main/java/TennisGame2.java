@@ -31,6 +31,10 @@ public class TennisGame2 implements TennisGame {
             return "Advantage player2";
         }
 
+        return formatScore();
+    }
+
+    private String formatScore() {
         return player1.score + "-" + player2.score;
     }
 
