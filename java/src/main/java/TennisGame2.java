@@ -1,9 +1,8 @@
 
 public class TennisGame2 implements TennisGame {
     public final Player player1 = new Player();
-    public int player2Point = 0;
+    public final Player player2 = new Player();
 
-    public String player2Score = "";
 
     public String getScore() {
         if (isTie()) {
@@ -27,24 +26,24 @@ public class TennisGame2 implements TennisGame {
         }
 
         player1.score = constructScore(player1.point);
-        player2Score = constructScore(player2Point);
-        return player1.score + "-" + player2Score;
+        player2.score = constructScore(player2.point);
+        return player1.score + "-" + player2.score;
     }
 
     private boolean isAdvantageForPlayer2() {
-        return player2Point > player1.point && isGamePointOrAbove(player1.point);
+        return player2.point > player1.point && isGamePointOrAbove(player1.point);
     }
 
     private boolean isAdvantageForPlayer1() {
-        return player1.point > player2Point && isGamePointOrAbove(player2Point);
+        return player1.point > player2.point && isGamePointOrAbove(player2.point);
     }
 
     private boolean isPlayer2Win() {
-        return player2Point >= 4 && player1.point >= 0 && (player2Point - player1.point) >= 2;
+        return player2.point >= 4 && player1.point >= 0 && (player2.point - player1.point) >= 2;
     }
 
     private boolean isPlayer1Win() {
-        return player1.point >= 4 && player2Point >= 0 && (player1.point - player2Point) >= 2;
+        return player1.point >= 4 && player2.point >= 0 && (player1.point - player2.point) >= 2;
     }
 
     private String constructScore(int playerPoint) {
@@ -70,7 +69,7 @@ public class TennisGame2 implements TennisGame {
     }
 
     private boolean isTie() {
-        return player1.point == player2Point;
+        return player1.point == player2.point;
     }
 
     public void player1Scores() {
@@ -78,7 +77,7 @@ public class TennisGame2 implements TennisGame {
     }
 
     public void player2Scores() {
-        player2Point++;
+        player2.point++;
     }
 
     public void wonPoint(String player) {
