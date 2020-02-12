@@ -26,14 +26,8 @@ public class TennisGame2 implements TennisGame {
         }
 
         if (player1Point > player2Point && isBelowGamePoint(player1Point)) {
-            if (player1Point == 2)
-                player1Score = "Thirty";
-            if (player1Point == 3)
-                player1Score = "Forty";
-            if (player2Point == 1)
-                player2Score = "Fifteen";
-            if (player2Point == 2)
-                player2Score = "Thirty";
+            player1Score = constructScore(player1Point);
+            player2Score = constructScore(player2Point);
             score = player1Score + "-" + player2Score;
         }
         if (player2Point > player1Point && isBelowGamePoint(player2Point)) {
@@ -66,6 +60,8 @@ public class TennisGame2 implements TennisGame {
     }
 
     private String constructScore(int playerPoint) {
+        if (playerPoint == 0)
+            return "Love";
         if (playerPoint == 1)
             return "Fifteen";
         if (playerPoint == 2)
