@@ -9,16 +9,7 @@ public class TennisGame2 implements TennisGame {
     public String getScore() {
         String score = "";
         if (isTie() ) {
-            if (isGamePointOrAbove()) {
-                return "Deuce";
-            }
-            if (player1Point == 0)
-                score = "Love";
-            if (player1Point == 1)
-                score = "Fifteen";
-            if (player1Point == 2)
-                score = "Thirty";
-            score += "-All";
+            return constructTieScore(score);
         }
 
         if (player1Point > 0 && player2Point == 0) {
@@ -81,6 +72,20 @@ public class TennisGame2 implements TennisGame {
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
             score = "Win for player2";
         }
+        return score;
+    }
+
+    private String constructTieScore(String score) {
+        if (isGamePointOrAbove()) {
+            return "Deuce";
+        }
+        if (player1Point == 0)
+            score = "Love";
+        if (player1Point == 1)
+            score = "Fifteen";
+        if (player1Point == 2)
+            score = "Thirty";
+        score += "-All";
         return score;
     }
 
