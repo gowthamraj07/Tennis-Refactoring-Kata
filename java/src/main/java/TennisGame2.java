@@ -3,6 +3,13 @@ public class TennisGame2 implements TennisGame {
     public final Player player1 = new Player();
     public final Player player2 = new Player();
 
+    public void wonPoint(String player) {
+        if ("player1".equals(player))
+            player1.scores();
+        else
+            player2.scores();
+    }
+
     public String getScore() {
         if (isTie()) {
             return constructTieScore();
@@ -56,12 +63,5 @@ public class TennisGame2 implements TennisGame {
 
     private boolean isTie() {
         return player1.point == player2.point;
-    }
-
-    public void wonPoint(String player) {
-        if ("player1".equals(player))
-            player1.scores();
-        else
-            player2.scores();
     }
 }
