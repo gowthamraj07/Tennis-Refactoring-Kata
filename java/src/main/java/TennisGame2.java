@@ -15,11 +15,11 @@ public class TennisGame2 implements TennisGame {
             return constructTieScore();
         }
 
-        if (isPlayer1Win()) {
+        if (player1Wins()) {
             return "Win for player1";
         }
 
-        if (isPlayer2Win()) {
+        if (player2Wins()) {
             return "Win for player2";
         }
 
@@ -46,11 +46,11 @@ public class TennisGame2 implements TennisGame {
         return player1.point > player2.point && isGamePointOrAbove(player2.point);
     }
 
-    private boolean isPlayer2Win() {
+    private boolean player2Wins() {
         return player2.point >= 4 && player1.point >= 0 && (player2.point - player1.point) >= 2;
     }
 
-    private boolean isPlayer1Win() {
+    private boolean player1Wins() {
         return player1.point >= 4 && player2.point >= 0 && (player1.point - player2.point) >= 2;
     }
 
