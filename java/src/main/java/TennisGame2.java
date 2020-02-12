@@ -63,9 +63,7 @@ public class TennisGame2 implements TennisGame {
         if (isGamePointOrAbove(player1Point)) {
             return "Deuce";
         }
-        String score = constructScore(player1Point);
-        score += "-All";
-        return score;
+        return constructScore(player1Point) + "-All";
     }
 
     private boolean isGamePointOrAbove(int playerPoint) {
