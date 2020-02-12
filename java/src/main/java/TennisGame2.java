@@ -2,6 +2,7 @@
 public class TennisGame2 implements TennisGame {
     public final Player player1 = new Player();
     public final Player player2 = new Player();
+    private final Score score = new Score();
 
 
     public String getScore() {
@@ -25,8 +26,8 @@ public class TennisGame2 implements TennisGame {
             return "Advantage player2";
         }
 
-        player1.score = constructScore(player1.point);
-        player2.score = constructScore(player2.point);
+        player1.score = score.constructScore(player1.point);
+        player2.score = score.constructScore(player2.point);
         return player1.score + "-" + player2.score;
     }
 
@@ -46,22 +47,11 @@ public class TennisGame2 implements TennisGame {
         return player1.point >= 4 && player2.point >= 0 && (player1.point - player2.point) >= 2;
     }
 
-    private String constructScore(int playerPoint) {
-        if (playerPoint == 0)
-            return "Love";
-        if (playerPoint == 1)
-            return "Fifteen";
-        if (playerPoint == 2)
-            return "Thirty";
-
-        return "Forty";
-    }
-
     private String constructTieScore() {
         if (isGamePointOrAbove(player1.point)) {
             return "Deuce";
         }
-        return constructScore(player1.point) + "-All";
+        return score.constructScore(player1.point) + "-All";
     }
 
     private boolean isGamePointOrAbove(int playerPoint) {
