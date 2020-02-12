@@ -20,18 +20,18 @@ public class TennisGame2 implements TennisGame {
             return "Win for player2";
         }
 
+        if (isAdvantageForPlayer1()) {
+            return "Advantage player1";
+        }
+
+        if (isAdvantageForPlayer2()) {
+            return "Advantage player2";
+        }
+
         if (isBelowGamePoint(player1Point) || isBelowGamePoint(player2Point)) {
             player1Score = constructScore(player1Point);
             player2Score = constructScore(player2Point);
             score = player1Score + "-" + player2Score;
-        }
-
-        if (isAdvantageForPlayer1()) {
-            score = "Advantage player1";
-        }
-
-        if (isAdvantageForPlayer2()) {
-            score = "Advantage player2";
         }
 
         return score;
