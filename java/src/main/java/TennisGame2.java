@@ -2,8 +2,6 @@
 public class TennisGame2 implements TennisGame {
     public final Player player1 = new Player();
     public final Player player2 = new Player();
-    private final Score score = new Score();
-
 
     public String getScore() {
         if (isTie()) {
@@ -49,7 +47,7 @@ public class TennisGame2 implements TennisGame {
         if (isGamePointOrAbove(player1.point)) {
             return "Deuce";
         }
-        return score.constructScore(player1.point) + "-All";
+        return player1.score + "-All";
     }
 
     private boolean isGamePointOrAbove(int playerPoint) {
