@@ -12,19 +12,6 @@ public class TennisGame2 implements TennisGame {
             return constructTieScore(score);
         }
 
-        if (player1Point > 0 && player2Point == 0) {
-            player1Score = constructScore(player1Point);
-
-            player2Score = "Love";
-            score = player1Score + "-" + player2Score;
-        }
-        if (player2Point > 0 && player1Point == 0) {
-            player2Score = constructScore(player2Point);
-
-            player1Score = "Love";
-            score = player1Score + "-" + player2Score;
-        }
-
         if (isBelowGamePoint(player1Point) || isBelowGamePoint(player2Point)) {
             player1Score = constructScore(player1Point);
             player2Score = constructScore(player2Point);
