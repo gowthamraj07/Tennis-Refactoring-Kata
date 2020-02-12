@@ -7,7 +7,6 @@ public class TennisGame2 implements TennisGame {
     public String player2Score = "";
 
     public String getScore() {
-        String score = "";
         if (isTie()) {
             return constructTieScore();
         }
