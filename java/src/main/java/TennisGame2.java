@@ -1,10 +1,18 @@
 
 public class TennisGame2 implements TennisGame {
+    public static final String TIE_SCORE_SUFFIX = "-All";
+    public static final String PLAYER_1_WINS = "Win for player1";
+    public static final String PLAYER_2_WINS = "Win for player2";
+    public static final String ADVANTAGE_PLAYER_1 = "Advantage player1";
+    public static final String ADVANTAGE_PLAYER_2 = "Advantage player2";
+    public static final String PLAYER_1 = "player1";
+    public static final String SCORE_SEPARATOR = "-";
+
     public final Player player1 = new Player();
     public final Player player2 = new Player();
 
     public void wonPoint(String player) {
-        if ("player1".equals(player))
+        if (PLAYER_1.equals(player))
             player1.scores();
         else
             player2.scores();
@@ -16,26 +24,26 @@ public class TennisGame2 implements TennisGame {
         }
 
         if (player1Wins()) {
-            return "Win for player1";
+            return PLAYER_1_WINS;
         }
 
         if (player2Wins()) {
-            return "Win for player2";
+            return PLAYER_2_WINS;
         }
 
         if (isAdvantageForPlayer1()) {
-            return "Advantage player1";
+            return ADVANTAGE_PLAYER_1;
         }
 
         if (isAdvantageForPlayer2()) {
-            return "Advantage player2";
+            return ADVANTAGE_PLAYER_2;
         }
 
         return formatScore();
     }
 
     private String formatScore() {
-        return player1.score + "-" + player2.score;
+        return player1.score + SCORE_SEPARATOR + player2.score;
     }
 
     private boolean isAdvantageForPlayer2() {
@@ -56,9 +64,9 @@ public class TennisGame2 implements TennisGame {
 
     private String constructTieScore() {
         if (isGamePointOrAbove(player1.point)) {
-            return "Deuce";
+            return Score.DEUCE;
         }
-        return player1.score + "-All";
+        return player1.score + TIE_SCORE_SUFFIX;
     }
 
     private boolean isGamePointOrAbove(int playerPoint) {
