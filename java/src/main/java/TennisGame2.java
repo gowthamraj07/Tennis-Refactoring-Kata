@@ -26,13 +26,21 @@ public class TennisGame2 implements TennisGame {
             score = "Advantage player2";
         }
 
-        if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
+        if (isPlayer1Win()) {
             score = "Win for player1";
         }
-        if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
+        if (isPlayer2Win()) {
             score = "Win for player2";
         }
         return score;
+    }
+
+    private boolean isPlayer2Win() {
+        return player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2;
+    }
+
+    private boolean isPlayer1Win() {
+        return player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2;
     }
 
     private String constructScore(int playerPoint) {
